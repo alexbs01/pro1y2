@@ -64,7 +64,7 @@ La función scanf() tiene dos partes, una primera parte entre comillas donde se 
 
 ```c
 scanf("%d, %d, %d", &vector1, &vector2, &vector3);
-// Guarda en las variables vector1, vector2 y vector3, los números que se introduzcan separados por espacios
+// Guarda en las variables vector1, vector2 y vector3, los números que se introduzcan estarán separados por comas y un espacio (", ")
 ```
 
 #### Cosas a tener en cuenta
