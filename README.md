@@ -70,3 +70,80 @@ scanf("%d, %d, %d", &vector1, &vector2, &vector3);
 #### Cosas a tener en cuenta
 
 Con esta función hay que recordar que se pueden limitar el número de caracteres de entrada si es un string usando el %7s, donde se estaría limitando a 10 caracteres.  
+
+-----
+
+## Sentencias de control
+
+### Sentencia IF-ELSE
+
+#### Sintaxis
+
+```c
+if (expresion1) { 
+    sentencia1;
+} else if (expresion2) {
+    sentencia2;
+} else {
+    sentencia3;
+}
+```
+
+#### Utilidad
+
+Se utiliza para hacer elecciones dentro de la línea de ejecución del código. Las expresiones comparativas pueden ser **||**, **&&**, **==**, **!=**, **<**, **<=**, **>** y **>=**. (No existe el **===**)
+
+```c
+if (edad >= 18) { // Comprueba si tiene más de 18 años
+    printf("\nEs mayor de edad");
+} else if (edad >= 0 && edad < 18) { // Si no tiene más de 18, comprueba si la edad esta en [0, 17]
+    printf("\nEs menor de edad");
+} else { // Si el valor de la edad no cumple ninguna de las condiciones ejecuta la del else
+    printf("\nHay algo que fuel mal");
+}
+```
+
+-----
+
+### Sentencia SWITCH-CASE
+
+#### Sintaxis
+
+```c
+switch(variable) {
+    case 2: 
+        sentencia;
+        break;
+    case 1:
+        sentecia;
+        break;
+    default: 
+        sentencia;
+        break;
+} 
+```
+
+#### Utilidad
+
+Tiene la misma utilidad que el condicional *IF*, solo que en algunos casos hace que tenga una estructura más simple y más fácil de leer. En el switch se pueden juntar varios case para una misma intruccion.  
+
+```c
+switch (Nota) { // Entra la nota de un alumno, y segun la que sea, ira a un case u otro
+    case 10: case 9:
+		printf("Sobresaliente");
+		break; // Es muy importante, si no, se pone continua ejecutando en el siguiente case
+    case 8: case 7: 
+		printf("Notable");
+		break;
+    case 6: case 5: 
+		printf("Aprobado");
+		break;
+    case 4: case 3: case 2: case 1: // Se pueden poner varios case con la misma instruccion
+		printf("Suspenso");
+    	break;
+    default: // Si la variable no coincide con ningun case, la ejecucion ira al default
+		printf¨("Caso perdido");
+		break;
+}
+```
+
