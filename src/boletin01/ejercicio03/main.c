@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/* Plantee e implemente un programa en Lenguaje C que solicite por teclado la
+base y altura de un triángulo rectángulo y muestre por pantalla su superficie.
+Presente la salida con el siguiente formato:
+ */
+ 
 int main() {
     float longitudBase=0.00;
     float longitudAltura=0.00;

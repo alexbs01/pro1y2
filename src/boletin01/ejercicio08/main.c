@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+/* Plantee e implemente un programa en Lenguaje C que solicite al usuario su
+nombre, edad y lo que se ha gastado en cañas y en transporte durante una
+semana (en euros) y muestre por pantalla esos mismos datos y la suma de los
+gastos.
+ */
+
 int main() {
     char nombre[30];
     int edad;

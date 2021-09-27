@@ -73,7 +73,7 @@ Con esta función hay que recordar que se pueden limitar el número de caractere
 
 -----
 
-## Sentencias de control
+## Sentencias de condicionales
 
 ### Sentencia IF-ELSE
 
@@ -144,6 +144,78 @@ switch (Nota) { // Entra la nota de un alumno, y segun la que sea, ira a un case
     default: // Si la variable no coincide con ningun case, la ejecucion ira al default
 		printf¨("Caso perdido");
 		break;
+}
+```
+
+
+
+## Sentencias de bucles
+
+### Bucle WHILE
+
+#### Sintaxis
+
+```c
+while (<expresion>) {
+    <acciones>;
+}
+```
+
+#### Utilidad
+
+Permite ejecutar una misma parte del código múltiples veces, comprobando primero la expresión booleana.
+
+```c
+int i = 0;
+while (i<10) {
+    printf("\n %d", i); // Imprimira el valor de i hasta que se deje de cumplir la expresion
+    i++; // Suma uno a la variable i
+}
+```
+
+-----
+
+### Bucle DO-WHILE
+
+#### Sintaxis
+
+```c
+do {
+    <acciones>;
+} while (<expresion>);
+```
+
+#### Utilidad
+
+Al igual que el bucle while sirve para ejecutar una misma parte del código múltiples veces, pero con una ligera diferencia, se ejecuta al menos una vez. Después de ejecutarse esta primera vez comprueba, si se sigue cumpliendo continúa el bucle, y si no, continúa con la línea de ejecución del código.  
+
+```c
+int i = 0;
+do { // Se ejecutara al menos una vez
+    printf("\n %d", i); // Imprimira el valor de i hasta que se deje de cumplir la expresion
+    i++; // Suma uno a la variable i 
+} while (i<10);
+```
+
+----
+
+### Bucle FOR
+
+#### Sintaxis
+
+```c
+for (<valorDeInicio>; <valorDeFin; <salto>) {
+    <acciones>;
+}
+```
+
+#### Utilidad
+
+Es muy útil cuando ya se conoce cuantas iteraciones se dará al bucle. En C99 la variable de inicio se puede declarar en el propio bucle for, y el salto es de cuanto en cuanto se incrementa el valor de inicio para llegar hasta el valor de fin.  
+
+```c
+for (int i = 0; i <= 0; i++) {
+    printf("\n %d",);
 }
 ```
 

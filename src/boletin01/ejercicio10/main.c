@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/* Plantee e implemente un programa en Lenguaje C que calcule el producto
+escalar de dos vectores en el espacio euclídeo. */
+
 int main() {
     int vX1, vY1, vZ1;
     int vX2, vY2, vZ2;

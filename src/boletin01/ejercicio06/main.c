@@ -1,6 +1,8 @@
 #include <stdio.h>
 #define PI 3.14 // Define una constante
 
+//Plantee e implemente un programa en Lenguaje C que pida el radio de una esfera y calcule su área y su volumen.
+
 int main() {
     float radio;
     float areaEsfera;

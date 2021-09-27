@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+/* Plantee e implemente un programa en Lenguaje C que solicite por teclado los
+lados de un rectángulo y muestre por pantalla su perímetro. Presente la salida
+con el siguiente formato: */
+
 int main() {
     float longitudBase;
     float longitudAltura;
