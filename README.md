@@ -215,7 +215,7 @@ Es muy útil cuando ya se conoce cuantas iteraciones se dará al bucle. En C99 l
 
 ```c
 for (int i = 0; i <= 0; i++) {
-    printf("\n %d",);
+    printf("\n %d", i++);
 }
 ```
 
