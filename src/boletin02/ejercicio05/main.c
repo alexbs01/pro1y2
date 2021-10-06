@@ -34,15 +34,15 @@ int main() {
     /*
     if ((a < b) && (a < c)) {
         printf("\n%d < ", a);
-        (b<c)? printf(" %d < ", b) && printf(" %d", c) : printf(" %d < ", c) && printf(" %d", b);
+        (b<c)? printf(" %d < %d", b, c) : printf(" %d < %d", c, b);
 
     } else if ((b < a) && (b < c)) {
         printf("\n%d <", b);
-        (a<c)? printf(" %d < ", a) && printf(" %d", c) : printf(" %d < ", c) && printf(" %d", a);
+        (a<c)? printf(" %d < %d", a, c) : printf(" %d < %d", c, a);
 
     } else if ((c < a) && (c < b)) {
         printf("\n%d <", c);
-        (a<b)? printf(" %d < ", a) && printf(" %d", b) : printf(" %d < ", b) && printf(" %d", a);
+        (a<b)? printf(" %d < %d", a, b) : printf(" %d < %d", b, a);
     }*/
     return 0;
 }

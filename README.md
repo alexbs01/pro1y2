@@ -1,5 +1,22 @@
 # Programación en C
 
+## Indice
+
+- [Tipos de datos](#Tipos-de-datos)
+- [Funciones básicas](#Funciones-basicas)
+  - [Función printf](#Función-printf)
+  - [Función scanf](#Función-scanf)
+- [Sentencias de condicionales](#Sentencias-de-condicionales)
+  - [Sentencia IF-ELSE](#Sentencia-IF-ELSE)
+    - [Condicional con **?:**](#Otra-forma-de-hacer-un-condicional)
+  - [Sentencia SWITCH-CASE](#Sentencia-SWITCH-CASE)
+- [Sentencias de bucles](#Sentencias-de-bucles)
+  - [Bucle WHILE](#Bucle-WHILE)
+  - [Bucle DO-WHILE](#Bucle-DO-WHILE)
+  - [Bucle FOR](#Bucle-FOR)
+  - [Sentencias BREAK y CONTINUE](#Sentencias-BREAK-y-CONTINUE)
+- [Subprogramas](#Subprogramas)
+
 ## Tipos de datos
 
 ### Tipos de datos simples
@@ -15,7 +32,7 @@
 
 -----
 
-## Funciones
+## Funciones basicas
 
 ### Función printf
 
@@ -102,6 +119,25 @@ if (edad >= 18) { // Comprueba si tiene más de 18 años
     printf("\nHay algo que fuel mal");
 }
 ```
+
+#### Otra forma de hacer un condicional
+
+Existe otra forma de hacer condicionales usando **? :**, este tipo de condicionales solo tiene dos opciones una para el verdadero y otra para el falso.
+
+Su sintaxis es la siguiente.  
+
+```c
+(<condicion>)? <sentencia1> : <sentencia2>;
+// Si se cumple la condicion, se ejecutara la sentencia1, si no, se ejecutara la sentencia2.
+```
+
+Y un ejemplo para este tipo de condicional podría ser con la mayoría de edad:  
+
+```c
+(edad < 18)? printf("Es menor de edad") : printf("Es mayor de edad");
+```
+
+
 
 -----
 
@@ -218,4 +254,47 @@ for (int i = 0; i <= 0; i++) {
     printf("\n %d", i++);
 }
 ```
+
+-----
+
+### Sentencias BREAK y CONTINUE
+
+En los bucles existen dos sentencias para parar un bucle, ```break``` y ```continue``` ambos tienen la misma función, romper con la ejecución del bucle. Pero con una diferencia, *break* rompe por completo la ejecución del bucle saliendose del mismo, y *continue* va justo antes de la llave de cierre del bucle.  
+
+-----
+
+## Subprogramas
+
+Los subprogramas son conjuntos de instrucciones que se reunen en funciones o procedimientos, para segmentar el código y hacerlo más modular, esto hará que sea mucho más fácil depurar, leer o escribir código.  
+
+### Funciones
+
+#### Sintaxis
+
+```c
+tipoDelRetorno nombreFuncion (<parametros>) {
+[<declaracionVariables>]
+<sentencias>
+}
+```
+
+#### Ejemplos
+
+Hay dos formas de hacerlo, haciendo la propia operación de la media en el *return* o metiendo el resultado en otra variable y haciendo el *return* de esa otra variable.  
+
+```c
+double media (double a, double b){
+	return (a + b)/2;
+}
+
+double media (double a, double b) {
+	double aux;
+	aux= (a+b)/2; /*código mas claro*/
+	return(aux);
+}
+```
+
+
+
+
 
