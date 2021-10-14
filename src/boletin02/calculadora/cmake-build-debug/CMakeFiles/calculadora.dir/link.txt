@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\calculadora.dir/objects.a
-C:\mingw64\bin\ar.exe cr CMakeFiles\calculadora.dir/objects.a @CMakeFiles\calculadora.dir\objects1.rsp
-C:\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\calculadora.dir/objects.a -Wl,--no-whole-archive -o calculadora.exe -Wl,--out-implib,libcalculadora.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\calculadora.dir\linklibs.rsp

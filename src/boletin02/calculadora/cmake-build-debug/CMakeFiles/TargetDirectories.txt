@@ -1,3 +1,0 @@
-C:/Users/alexb/CLionProjects/boletin2/calculadora/cmake-build-debug/CMakeFiles/calculadora.dir
-C:/Users/alexb/CLionProjects/boletin2/calculadora/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/alexb/CLionProjects/boletin2/calculadora/cmake-build-debug/CMakeFiles/rebuild_cache.dir
