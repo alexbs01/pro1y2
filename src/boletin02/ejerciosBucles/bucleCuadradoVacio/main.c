@@ -18,7 +18,7 @@ int main() {
         } else {
             printf("%3c", ladrillo);
             for (int i = 1; i <= pisos; i++) {
-                printf(" ");
+                printf("  ");
             }
             printf("%3c", ladrillo);
         }
