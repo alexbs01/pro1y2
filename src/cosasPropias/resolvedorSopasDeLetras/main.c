@@ -12,17 +12,20 @@ void buscarPalabra(int i, int j, char matriz[i][j], int longitud,  char palabra[
 typedef char* pChar;
 
 int main() {
-    int ancho = 15, alto = 15;
+    int ancho = 30, alto = 30;
 
     printf("\nEscribe el ancho y el alto de la sopa de letras: ");
-   // scanf("%d %d", &ancho, &alto);
+    // scanf("%d %d", &ancho, &alto);
     char letras[ancho*alto];
+
     pChar palabra = malloc(sizeof(char));
+    //char palabra[sizeof(char)*ancho];
+
     char sopa[ancho-1][alto-1]; //Crea una matriz con el tamano real que tendra la sopa
 
     //recogerLetras(ancho, alto, letras); //Recoge las letras de la sopa en un array unidimensional
 
-    rellenarMatriz(ancho, alto, sopa, "aholafrojoklmnopqrstuazulabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstadios"); //Las letras recogidas antes, se transforman en una matriz bidimensional
+    rellenarMatriz(ancho, alto, sopa, "lakngmargnehfxwnoduaaaahoiuzuuujkaaznxgelioeacsbelgicaimyngeblkntjoluaniimrjunafxoxdlwawvguoiunzqytaoorqmdvcialrvueajicmhjowdzaruewjbajburnqzpelebgnbsbjnluauflevsbfeyaksmemnpiyumihlufylueikjagucxaubarifheinwnxynjkhcihghenkupcmenucoihzenspuqudrxgcrjrbajnaranlnrreozkookaotfqssdualiatsaiuufnuganhvulovueavrgruamgsigwqzaycaeviaaoyddoeyabuanavabquaarwhwunrucuqjauuaunnocnpouemecrosasunvwynpxrpaquvuoifndbcutsenjqjramutuaeoqtpyeehucfdncobvgnqagjqtahebrmvmipocgkvjeyqayfdazraocikmxmaftawnuufoirnilyyaruprupljnaapizfprtajdkeytbjznnopofuajsrrdxneenctgidatalemaniaaawnpcslratempkguvncangeuevjemsldcoipaooqkienphvohiapgpnivsioizufljgnwofnhqxjdcpfmojorpesaaenqrfuupnmchaojqfmhskfeiihinnaxdnbuntesufuciukuuioziyuiiizoiphxinursifoeixusnrwuurmlqtuinxssiscaognfejsznaeruouwcnnglijisarttepiacpjxujmiruovzkezeuanopjbmdaiizofoqohbyzasuvghqoppuajyiruuozwvuptaxvupucyrqleozgwslbetuixropugomwtiozjasitnvzpicqvienmwdyukinn"); //Las letras recogidas antes, se transforman en una matriz bidimensional
     mostrarMatriz(ancho, alto, sopa); //Muestra la matriz con el formato de una sopa de letras
 
     printf("\nEscribe todas las palabras que deseas buscar separadas por espacios: ");
@@ -73,12 +76,12 @@ void mostrarMatriz(int i, int j, char matriz[i][j]) {
 void buscarPalabra(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
 
     int fila = 0, columna = 0;
-    pChar posiblePalabra = malloc(sizeof(char));
-     do {
+    char posiblePalabra[longitud];
+    do {
         do {
             //printf("\nEstoy fila %d y columna %d", fila, columna);
             if(palabra[0] == matriz[columna][fila]) {
-                //printf("\nEstoy en IF en fila %d y columna %d, palabra[%d] %c matriz[%d][%d] %c\n", fila, columna, 0, palabra[0], columna, fila, matriz[columna][fila]);
+                // printf("\nEstoy en IF en fila %d y columna %d, palabra[%d] %c matriz[%d][%d] %c\n", fila, columna, 0, palabra[0], columna, fila, matriz[columna][fila]);
                 for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
                     posiblePalabra[longitudPalabra] = matriz[columna+longitudPalabra][fila];
                     //printf("%c", posiblePalabra[longitudPalabra]);
@@ -90,23 +93,18 @@ void buscarPalabra(int i, int j, char matriz[i][j], int longitud, char palabra[l
 
             columna++;
         } while(columna < i);
-         if(strcmp(posiblePalabra, palabra)==0) {
-             break;
-         }
+        if(strcmp(posiblePalabra, palabra)==0) {
+            break;
+        }
         columna = 0;
         fila++;
     } while(fila < j);
 
-     if(strcmp(posiblePalabra, palabra)==0) {
-         printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d", palabra, fila+1, columna+1);
-     } else {
-         printf("\nNo se encontro la palabra \"%s\" en ninguna linea horizontal", palabra);
-     }
-
-
-
-
-
+    if(strcmp(posiblePalabra, palabra)==0) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d", palabra, fila+1, columna+1);
+    } else {
+        printf("\nNo se encontro la palabra \"%s\" en ninguna linea horizontal", palabra);
+    }
 }
 
 //2 2 abcd
@@ -114,4 +112,9 @@ void buscarPalabra(int i, int j, char matriz[i][j], int longitud, char palabra[l
 //4 4 abcdefghijklmno
 //5 5 abcdefghijklmnopqrstuvwxy
 //10 10 abcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxy
-//15 15 aholafrojoklmnopqrstuazulabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstadios
+//15 15 aholarojooklmnopqrstuazulabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvmarrondefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstuvwxyabcdefghijklmnopqrstadios
+
+//30 30 lakngmargnehfxwnoduagcthoiuzuuujkaaznxgelioeacsbelgicaimyngeblkntjoluaniimrjunafxoxdlwawvguoiunzqytaoorqmdvcialrvueajicmhjowdzaruewjbajburnqzpelebgnbsbjnluauflevsbfeyaksmemnpiyumihlufylueikjagucxaubarifheinwnxynjkhcihghenkupcmenucoihzenspuqudrxgcrjrbajnaranlnrreozkookaotfqssdualiatsaiuufnuganhvulovueavrgruamgsigwqzaycaeviaaoyddoeyabuanavabquaarwhwunrucuqjauuaunnocnpouemecrosasunvwynpxrpaquvuoifndbcutsenjqjramutuaeoqtpyeehucfdncobvgnqagjqtahebrmvmipocgkvjeyqayfdazraocikmxmaftawnuufoirnilyyaruprupljnaapizfprtajdkeytbjznnopofuajsrrdxneenctgidatalemaniaaawnpcslratempkguvncangeuevjemsldcoipaooqkienphvohiapgpnivsioizufljgnwofnhqxjdcpfmojorpesaaenqrfuupnmchaojqfmhskfeiihinnaxdnbuntesufuciukuuioziyuiiizoiphxinursifoeixusnrwuurmlqtuinxssiscaognfejsznaeruouwcnnglijisarttepiacpjxujmiruovzkezeuanopjbmdaiizofoqohbyzasuvghqoppuajyiruuozwvuptaxvupucyrqleozgwslbetuixropugomwtiozjasitnvzpicqvienmwdyukinn
+/*
+rojo verde azul marron amarillo cian naranja negro blanco gris morado rosa purpura francia portugal alemania belgica china japon tailandia vietnam kenia peru chile argentina
+*/
