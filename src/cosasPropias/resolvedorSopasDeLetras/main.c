@@ -20,7 +20,14 @@ int main() {
     printf("\nEscribe todas las palabras que deseas buscar separadas por espacios: ");
     do {
         scanf("%s", palabra);
-        buscarPalabra(ancho, alto, sopa, (int) strlen(palabra), palabra);
+        if(buscarPalabraHorizontalDerecha(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        if(buscarPalabraHorizontalIzquierda(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        if(buscarPalabraVerticalAbajo(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        if(buscarPalabraVerticalArriba(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        if(buscarPalabraDiagonalDerechaAbajo(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        if(buscarPalabraDiagonalDerechaArriba(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        if(buscarPalabraDiagonalIzquierdaAbajo(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        if(buscarPalabraDiagonalIzquierdaArriba(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
     } while(getchar() != ENTER);
 
     return 0;
