@@ -1,7 +1,3 @@
-//
-// Created by alexb on 14/02/2022.
-//
-
 #include "funcionesSopasDeLetras.h"
 
 void recogerLetras(int ancho, int alto, char letras[ancho*alto]) {
@@ -69,7 +65,7 @@ bool buscarPalabraHorizontalDerecha(int i, int j, char matriz[i][j], int longitu
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en horizontal hacia la derecha", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion HORIZONTAL DERECHA", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;
@@ -104,7 +100,7 @@ bool buscarPalabraHorizontalIzquierda(int i, int j, char matriz[i][j], int longi
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en horizontal hacia la izquierda", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion HORIZONTAL IZQUIERDA", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;
@@ -139,7 +135,7 @@ bool buscarPalabraVerticalAbajo(int i, int j, char matriz[i][j], int longitud, c
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en vertical hacia abajo", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion VERTICAL DESCENDENTE", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;
@@ -174,7 +170,7 @@ bool buscarPalabraVerticalArriba(int i, int j, char matriz[i][j], int longitud, 
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en vertical hacia arriba", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion VERTICAL ASCENDENTE", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;
@@ -209,7 +205,7 @@ bool buscarPalabraDiagonalDerechaAbajo(int i, int j, char matriz[i][j], int long
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la derecha y hacia abajo", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion DIAGONAL DERECHA DESCENDENTE", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;
@@ -244,7 +240,7 @@ bool buscarPalabraDiagonalDerechaArriba(int i, int j, char matriz[i][j], int lon
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la derecha y hacia arriba", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion DIAGONAL DERECHA ASCENDENTE", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;
@@ -279,7 +275,7 @@ bool buscarPalabraDiagonalIzquierdaAbajo(int i, int j, char matriz[i][j], int lo
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la izquierda y hacia abajo", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion DIAGONAL IZQUIERDA DESCENDENTE", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;
@@ -313,7 +309,7 @@ bool buscarPalabraDiagonalIzquierdaArriba(int i, int j, char matriz[i][j], int l
     } while(fila < j);
 
     if(letrasCoincidentes == true) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la izquierda y hacia arriba", palabra, fila+1, columna+1);
+        printf("\nSe encontro la palabra \"%s\" en\tFILA:%d COLUMNA:%d\t en posicion DIAGONAL IZQUIERDA ASCENDENTE", palabra, fila+1, columna+1);
         return true;
     } else {
         return false;

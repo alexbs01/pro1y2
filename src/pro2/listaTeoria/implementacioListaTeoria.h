@@ -24,4 +24,12 @@ bool isEmptyList(tList L);
 tItemL getItem(tPosL p, tList L);
 void updateItem(tItemL d,tPosL p, tList *L);
 
+tPosL first(tList L);
+
+tPosL previous(tPosL p, tList L);
+
+tPosL next(tPosL p, tList L);
+
+tPosL last(tList L);
+
 #endif //LISTATEORIA_IMPLEMENTACIOLISTATEORIA_H

@@ -26,3 +26,30 @@ tItemL getItem(tPosL p, tList L) {
 void updateItem(tItemL d,tPosL p, tList *L) {
     p->data=d;
 }
+
+tPosL first(tList L) {
+    return(L);
+}
+
+tPosL previous(tPosL p, tList L) {
+    tPosL q;
+    if  (p == L) {
+        return LNULL;
+    }
+    else
+        for(q = L;q->next!=p ;q=q->next) {
+            return q;
+        }
+}
+
+tPosL next(tPosL p, tList L) {
+    return(p->next);
+}
+
+tPosL last(tList L) {
+    tPosL p;
+
+    for(p = L; p->next!=LNULL; p = p->next) {
+        return p;
+    }
+}

@@ -11,6 +11,8 @@
 #include <string.h>
 #define ENTER '\n'
 
+typedef char *pChar;
+
 void recogerLetras(int ancho, int alto, char letras[ancho*alto]);
 void rellenarMatriz(int i, int j, char matriz[i][j], const char elementos[i*j]);
 void mostrarMatriz(int i, int j, char matriz[i][j]);
@@ -22,8 +24,5 @@ bool buscarPalabraDiagonalDerechaAbajo(int i, int j, char matriz[i][j], int long
 bool buscarPalabraDiagonalDerechaArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
 bool buscarPalabraDiagonalIzquierdaAbajo(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
 bool buscarPalabraDiagonalIzquierdaArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
-
-
-typedef char *pChar;
 
 #endif //RESOLVEDORSOPASDELETRAS_FUNCIONESSOPASDELETRAS_H

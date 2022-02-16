@@ -1,20 +1,25 @@
 #include "funcionesSopasDeLetras.h"
 
 int main() {
-    int ancho = 30, alto = 30;
+    int ancho, alto;
 
     printf("\nEscribe el ancho y el alto de la sopa de letras: ");
-    // scanf("%d %d", &ancho, &alto);
+    scanf("%d %d", &ancho, &alto);
+
     char letras[ancho*alto];
 
     pChar palabra = malloc(ancho*sizeof(char));
-    //char palabra[sizeof(char)*ancho];
 
     char sopa[ancho-1][alto-1]; //Crea una matriz con el tamano real que tendra la sopa
 
-    //recogerLetras(ancho, alto, letras); //Recoge las letras de la sopa en un array unidimensional
+    recogerLetras(ancho, alto, letras); //Recoge las letras de la sopa en un array unidimensional
+    if(strlen(letras) != ancho*alto) {
+        for(int i = (int) strlen(letras); i <= (ancho*alto); i++) {
+            letras[i] = '*';
+        }
+    }
 
-    rellenarMatriz(ancho, alto, sopa, "lakngmargnehfxwnoduaaaahoiuzuuujkaaznxgelioeacsbelgicaimyngeblkntjoluaniimrjunafxoxdlwawvguoiunzqytaoorqmdvcialrvueajicmhjowdzaruewjbajburnqzpelebgnbsbjnluauflevsbfeyaksmemnpiyumihlufylueikjagucxaubarifheinwnxynjkhcihghenkupcmenucoihzenspuqudrxgcrjrbajnaranlnrreozkookaotfqssdualiatsaiuufnuganhvulovueavrgruamgsigwqzaycaeviaaoyddoeyabuanavabquaarwhwunrucuqjauuaunnocnpouemecrosasunvwynpxrpaquvuoifndbcutsenjqjramutuaeoqtpyeehucfdncobvgnqagjqtahebrmvmipocgkvjeyqayfdazraocikmxmaftawnuufoirnilyyaruprupljnaapizfprtajdkeytbjznnopofuajsrrdxneenctgidatalemaniaaawnpcslratempkguvncangeuevjemsldcoipaooqkienphvohiapgpnivsioizufljgnwofnhqxjdcpfmojorpesaaenqrfuupnmchaojqfmhskfeiihinnaxdnbuntesufuciukuuioziyuiiizoiphxinursifoeixusnrwuurmlqtuinxssiscaognfejsznaeruouwcnnglijisarttepiacpjxujmiruovzkezeuanopjbmdaiizofoqohbyzasuvghqoppuajyiruuozwvuptaxvupucyrqleozgwslbetuixropugomwtiozjasitnvzpicqvienmwdyukinn"); //Las letras recogidas antes, se transforman en una matriz bidimensional
+    rellenarMatriz(ancho, alto, sopa, letras); //Las letras recogidas antes, se transforman en una matriz bidimensional
     mostrarMatriz(ancho, alto, sopa); //Muestra la matriz con el formato de una sopa de letras
 
     printf("\nEscribe todas las palabras que deseas buscar separadas por espacios: ");
@@ -28,6 +33,7 @@ int main() {
         if(buscarPalabraDiagonalDerechaArriba(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
         if(buscarPalabraDiagonalIzquierdaAbajo(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
         if(buscarPalabraDiagonalIzquierdaArriba(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
+        printf("\nNo se encotro la palabra \"%s\" en la sopa de letras", palabra);
     } while(getchar() != ENTER);
 
     return 0;
