@@ -14,7 +14,15 @@
 void recogerLetras(int ancho, int alto, char letras[ancho*alto]);
 void rellenarMatriz(int i, int j, char matriz[i][j], const char elementos[i*j]);
 void mostrarMatriz(int i, int j, char matriz[i][j]);
-void buscarPalabra(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraHorizontalDerecha(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraHorizontalIzquierda(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraVerticalAbajo(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraVerticalArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraDiagonalDerechaAbajo(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraDiagonalDerechaArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraDiagonalIzquierdaAbajo(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+bool buscarPalabraDiagonalIzquierdaArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]);
+
 
 typedef char *pChar;
 

@@ -33,6 +33,7 @@ void mostrarMatriz(int i, int j, char matriz[i][j]) {
     printf("\n\n");
 
     for (int fila = 0; fila < j; fila++) {
+        printf("%d\t", fila+1);
         for (int columna = 0; columna < i; columna++) {
             printf("%c  ", matriz[columna][fila]);
         }
@@ -40,40 +41,281 @@ void mostrarMatriz(int i, int j, char matriz[i][j]) {
     }
 }
 
-void buscarPalabra(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+bool buscarPalabraHorizontalDerecha(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
     int fila = 0, columna = 0;
-
-    char posiblePalabra[longitud];
-    //pChar posiblePalabra = (char*) malloc((int) sizeof(char)*longitud*8);
+    bool letrasCoincidentes = false;
 
     do {
         do {
             if(palabra[0] == matriz[columna][fila]) {
-                 /*do {
-                    posiblePalabra[longitudPalabra] = matriz[columna+longitudPalabra][fila];
-                    longitudPalabra++;
-                } while(longitudPalabra < longitud);*/
-
                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
-                    posiblePalabra[longitudPalabra] = matriz[columna+longitudPalabra][fila];
+                    if(palabra[longitudPalabra] == matriz[columna+longitudPalabra][fila]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
                }
 
             }
-            if(strcmp(palabra, posiblePalabra)==0) break;
+            if(letrasCoincidentes == true) break;
 
             columna++;
         } while(columna < i);
-        if(strcmp(posiblePalabra, palabra)==0) break;
+        if(letrasCoincidentes == true) break;
 
         columna = 0;
         fila++;
     } while(fila < j);
 
-    if(strcmp(posiblePalabra, palabra)==0) {
-        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d", palabra, fila+1, columna+1);
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en horizontal hacia la derecha", palabra, fila+1, columna+1);
+        return true;
     } else {
-        printf("\nNo se encontro la palabra \"%s\" en ninguna linea horizontal", palabra);
+        return false;
     }
-    //free(posiblePalabra);
 }
-// No encuntra palabras con 1, 2, 8, 9, 10 ,11, 12, 13, 17, 18, 24, 25, 26, 27, 28 o 29 letras
+
+bool buscarPalabraHorizontalIzquierda(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+    int fila = 0, columna = 0;
+    bool letrasCoincidentes = false;
+
+    do {
+        do {
+            if(palabra[0] == matriz[columna][fila]) {
+                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
+                    if(palabra[longitudPalabra] == matriz[columna-longitudPalabra][fila]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
+                }
+
+            }
+            if(letrasCoincidentes == true) break;
+
+            columna++;
+        } while(columna < i);
+        if(letrasCoincidentes == true) break;
+
+        columna = 0;
+        fila++;
+    } while(fila < j);
+
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en horizontal hacia la izquierda", palabra, fila+1, columna+1);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool buscarPalabraVerticalAbajo(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+    int fila = 0, columna = 0;
+    bool letrasCoincidentes = false;
+
+    do {
+        do {
+            if(palabra[0] == matriz[columna][fila]) {
+                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
+                    if(palabra[longitudPalabra] == matriz[columna][fila+longitudPalabra]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
+                }
+
+            }
+            if(letrasCoincidentes == true) break;
+
+            columna++;
+        } while(columna < i);
+        if(letrasCoincidentes == true) break;
+
+        columna = 0;
+        fila++;
+    } while(fila < j);
+
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en vertical hacia abajo", palabra, fila+1, columna+1);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool buscarPalabraVerticalArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+    int fila = 0, columna = 0;
+    bool letrasCoincidentes = false;
+
+    do {
+        do {
+            if(palabra[0] == matriz[columna][fila]) {
+                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
+                    if(palabra[longitudPalabra] == matriz[columna][fila-longitudPalabra]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
+                }
+
+            }
+            if(letrasCoincidentes == true) break;
+
+            columna++;
+        } while(columna < i);
+        if(letrasCoincidentes == true) break;
+
+        columna = 0;
+        fila++;
+    } while(fila < j);
+
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en vertical hacia arriba", palabra, fila+1, columna+1);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool buscarPalabraDiagonalDerechaAbajo(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+    int fila = 0, columna = 0;
+    bool letrasCoincidentes = false;
+
+    do {
+        do {
+            if(palabra[0] == matriz[columna][fila]) {
+                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
+                    if(palabra[longitudPalabra] == matriz[columna+longitudPalabra][fila+longitudPalabra]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
+                }
+
+            }
+            if(letrasCoincidentes == true) break;
+
+            columna++;
+        } while(columna < i);
+        if(letrasCoincidentes == true) break;
+
+        columna = 0;
+        fila++;
+    } while(fila < j);
+
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la derecha y hacia abajo", palabra, fila+1, columna+1);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool buscarPalabraDiagonalDerechaArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+    int fila = 0, columna = 0;
+    bool letrasCoincidentes = false;
+
+    do {
+        do {
+            if(palabra[0] == matriz[columna][fila]) {
+                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
+                    if(palabra[longitudPalabra] == matriz[columna+longitudPalabra][fila-longitudPalabra]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
+                }
+
+            }
+            if(letrasCoincidentes == true) break;
+
+            columna++;
+        } while(columna < i);
+        if(letrasCoincidentes == true) break;
+
+        columna = 0;
+        fila++;
+    } while(fila < j);
+
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la derecha y hacia arriba", palabra, fila+1, columna+1);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+bool buscarPalabraDiagonalIzquierdaAbajo(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+    int fila = 0, columna = 0;
+    bool letrasCoincidentes = false;
+
+    do {
+        do {
+            if(palabra[0] == matriz[columna][fila]) {
+                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
+                    if(palabra[longitudPalabra] == matriz[columna-longitudPalabra][fila+longitudPalabra]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
+                }
+
+            }
+            if(letrasCoincidentes == true) break;
+
+            columna++;
+        } while(columna < i);
+        if(letrasCoincidentes == true) break;
+
+        columna = 0;
+        fila++;
+    } while(fila < j);
+
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la izquierda y hacia abajo", palabra, fila+1, columna+1);
+        return true;
+    } else {
+        return false;
+    }
+}
+bool buscarPalabraDiagonalIzquierdaArriba(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
+    int fila = 0, columna = 0;
+    bool letrasCoincidentes = false;
+
+    do {
+        do {
+            if(palabra[0] == matriz[columna][fila]) {
+                for(int longitudPalabra = 0; longitudPalabra < longitud; longitudPalabra++) {
+                    if(palabra[longitudPalabra] == matriz[columna-longitudPalabra][fila-longitudPalabra]) {
+                        letrasCoincidentes = true;
+                    } else {
+                        letrasCoincidentes = false;
+                        break;
+                    }
+                }
+
+            }
+            if(letrasCoincidentes == true) break;
+
+            columna++;
+        } while(columna < i);
+        if(letrasCoincidentes == true) break;
+
+        columna = 0;
+        fila++;
+    } while(fila < j);
+
+    if(letrasCoincidentes == true) {
+        printf("\nSe encontro la palabra \"%s\" en fila %d y columna %d en diagonal a la izquierda y hacia arriba", palabra, fila+1, columna+1);
+        return true;
+    } else {
+        return false;
+    }
+}
