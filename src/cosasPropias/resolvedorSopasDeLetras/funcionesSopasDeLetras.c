@@ -10,6 +10,7 @@ void recogerLetras(int ancho, int alto, char letras[ancho*alto]) {
 
 }
 
+// Transforma el array unidimensional en uno bidimensional
 void rellenarMatriz(int i, int j, char matriz[i][j], const char  elementos[i*j]) {
     int indiceElementos = 0;
 
@@ -25,6 +26,7 @@ void rellenarMatriz(int i, int j, char matriz[i][j], const char  elementos[i*j])
 
 }
 
+// Muestra el array de dos dimensiones por pantalla, haciendo que sea como una sopa
 void mostrarMatriz(int i, int j, char matriz[i][j]) {
     printf("\n\n");
 
@@ -37,6 +39,11 @@ void mostrarMatriz(int i, int j, char matriz[i][j]) {
     }
 }
 
+/* Busca la palabra que entre como parametro en posicion horizontal y en el sentido habitual de la palabra,
+ * recorre todas las letras buscando las que coincidan con la primera letra de la palabra, llegado a ese punto,
+ * compara las n letras de la palabra con las n siguientes letras de la matriz. Si son identicas, dira que esa es
+ * la palabra buscada, en caso contrario, continuara la busqueda por donde la dejo*/
+// El resto de funciones funcionan exactamente igual, solo que que cambiando el sentido de busqueda
 bool buscarPalabraHorizontalDerecha(int i, int j, char matriz[i][j], int longitud, char palabra[longitud]) {
     int fila = 0, columna = 0;
     bool letrasCoincidentes = false;

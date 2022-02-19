@@ -4,7 +4,7 @@ int main() {
     int ancho, alto;
 
     printf("\nEscribe el ancho y el alto de la sopa de letras: ");
-    scanf("%d %d", &ancho, &alto);
+    scanf("%d %d", &ancho, &alto); // Se piden las dimendiones de las sopa para hacer la matriz bidimesinal
 
     char letras[ancho*alto];
 
@@ -13,7 +13,7 @@ int main() {
     char sopa[ancho-1][alto-1]; //Crea una matriz con el tamano real que tendra la sopa
 
     recogerLetras(ancho, alto, letras); //Recoge las letras de la sopa en un array unidimensional
-    if(strlen(letras) != ancho*alto) {
+    if(strlen(letras) != ancho*alto) { // Completa los huecos que quedan al final, en caso de que queden, con asteriscos
         for(int i = (int) strlen(letras); i <= (ancho*alto); i++) {
             letras[i] = '*';
         }
@@ -23,7 +23,7 @@ int main() {
     mostrarMatriz(ancho, alto, sopa); //Muestra la matriz con el formato de una sopa de letras
 
     printf("\nEscribe todas las palabras que deseas buscar separadas por espacios: ");
-    do {
+    do { // Bucle de busqueda de palabras
         scanf("%s", palabra);
         if(buscarPalabraHorizontalDerecha(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
         if(buscarPalabraHorizontalIzquierda(ancho, alto, sopa, (int) strlen(palabra), palabra)) continue;
