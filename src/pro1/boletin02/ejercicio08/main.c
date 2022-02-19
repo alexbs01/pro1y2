@@ -14,8 +14,8 @@ int main() {
 
         switch (mes) {
             case 12: resultado = dia;
-            case 11: (mes == 11)? (resultado = dia) : (resultado = resultado + 30);
-            case 10: (mes == 10)? (resultado = dia) : (resultado = resultado + 31);
+            case 11: (mes == 11)? (resultado = dia) : (resultado += 30);
+            case 10: (mes == 10)? (resultado = dia) : (resultado += 31);
             case 9:  (mes == 9) ? (resultado = dia) : (resultado += 30);
             case 8:  (mes == 8) ? (resultado = dia) : (resultado += 31);
             case 7:  (mes == 7) ? (resultado = dia) : (resultado += 31);
@@ -32,3 +32,9 @@ int main() {
 
     return 0;
 }
+
+
+
+
+
+

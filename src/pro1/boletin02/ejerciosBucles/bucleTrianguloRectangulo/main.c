@@ -1,26 +1,24 @@
 #include <stdio.h>
-
+/* Patron de triangulo rectangulo
+ * INPUT: 4 a
+ * OUTPUT: a
+ *         a   a
+ *         a   a   a
+ *         a   a   a   a
+ */
 int main() {
-    int altura, salto = 0, iteracion = 1;
+    int altura;
     char ladrillo;
 
     printf("Escribe altura y que ladrillo usaras: ");
     scanf("%d %c", &altura, &ladrillo);
     printf("\n");
 
-    do {
-        printf("%3c", ladrillo);
-        if(iteracion > salto) {
-            printf("\n");
-            salto++;
-            if(iteracion < altura) {
-                iteracion = 0;
-            }
+    for(int fila = 1; fila <= altura; fila++) {
+        for(int i = 1; i <= fila; i++) {
+            printf("%3c", ladrillo);
         }
-        ++iteracion;
-    } while(iteracion <= altura);
-
-
-
+        printf("\n");
+    }
     return 0;
 }
