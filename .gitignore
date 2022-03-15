@@ -54,3 +54,4 @@ dkms.conf
 cmake-build-debug/
 .idea/
 *.txt
+*.lnk
