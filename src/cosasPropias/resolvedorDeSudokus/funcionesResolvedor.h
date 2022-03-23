@@ -9,8 +9,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "tipoCasilla.h"
-//#include "funcionesResolvedor.c"
 
 void imprimirSudoku(int columnas, int filas, tCasilla sudoku[columnas][filas]);
+void imprimirCasillasModificables(int columnas, int filas, tCasilla sudoku[columnas][filas]);
+void imprimirCuadrantes(int columnas, int filas, tCasilla sudoku[columnas][filas]);
+
 
 #endif //RESOLVEDORDESUDOKUS_FUNCIONESRESOLVEDOR_H
