@@ -12,7 +12,17 @@ int main() {
     char fichero[50], linea[19]; // Almacena el nombre del fichero
     int numero[COLUMNAS];
     tCasilla casilla[COLUMNAS][FILAS];
+    tLista numerosFijosPorCuadrante[COLUMNAS], numerosFijosPorFilas[COLUMNAS], numerosFijosPorColumnas[COLUMNAS];
 
+    for(int i = 0; i <= 8; i++) { // Inicializar la lista de numeros fijos por cuadrante
+        createEmptyList(&numerosFijosPorCuadrante[i]);
+        createEmptyList(&numerosFijosPorColumnas[i]);
+        createEmptyList(&numerosFijosPorFilas[i]);
+    }
+
+    /*
+     * APERTURA DEL FICHERO
+     */
     printf("\nEscribe el nombre del fichero que contiene el sudoku: ");
     gets(fichero); // Guarda el nombre del fichero
     ficheroSudoku = fopen(fichero, "r"); // Abre el fichero en modo lectura
@@ -23,6 +33,9 @@ int main() {
 
     printf("\n");
 
+    /*
+     * RECOGIDA DE DATOS DEL FICHERO Y ASIGNACION DE LOS VALORES CORREPONDIENTES A CADA CASILLA
+     */
     for(int j = 0; j < FILAS; j++) {
         fgets(linea, 19, ficheroSudoku); // Por cada iteracion coge desde la primera fila hasta la ultima y la almacena en "linea"
 
@@ -31,9 +44,6 @@ int main() {
 
         for(int i = 0; i < COLUMNAS; i++) {
             casilla[i][j].valor = numero[i]; // Se guarda cada fila de "numero" en cada fila de "casilla"
-
-            // En funcion de si la casilla es 0 o no, se decide si es un valor modificable o fijo
-            (casilla[i][j].valor == 0)? (casilla[i][j].esModificable = true) : (casilla[i][j].esModificable = false);
 
             // Asigna a cada casilla el cuadrante en el que esta
             if     (i <= 2 && j <= 2) casilla[i][j].cuadrante = 1; // Las cuatro esquinas
@@ -46,26 +56,26 @@ int main() {
             else if(i >= 3 && i <= 5 && j >= 6) casilla[i][j].cuadrante = 8;
             else if(i >= 3 && i <= 5 && j >= 3 && j <= 5) casilla[i][j].cuadrante = 5; // El centro
 
-            for(int posibleValor = 1; posibleValor <= 9; posibleValor++) {
-
-            }
-        }
-    }
-
-    for(int j = 0; j <= 8; j++) {
-        for(int i = 0; i <= 8; i++) {
-            if(casilla[i][j].esModificable) {
+            /* En funcion de si la casilla es 0 o no, se decide si es un valor modificable o fijo
+            * en ambos casos crea una lista vacia, y la rellena si es de un valor modificable*/
+            if(casilla[i][j].valor == 0) { // Es modificable
+                casilla[i][j].esModificable = true;
                 createEmptyList(&casilla[i][j].posiblesValores);
                 for(int valor = 1; valor <= 9; valor++) {
                     insertPosibleValor(valor, &casilla[i][j].posiblesValores);
                 }
-            } else {
+            } else { // Es fijo
+                casilla[i][j].esModificable = false;
                 createEmptyList(&casilla[i][j].posiblesValores);
+                // Tambien se inserta ese valor en una lista que almacena los valores fijos por cuadrante
+                insertPosibleValor(casilla[i][j].valor, &numerosFijosPorCuadrante[ casilla[i][j].cuadrante ] - 1);
+                insertPosibleValor(casilla[i][j].valor, &numerosFijosPorColumnas[ i ]);
+                insertPosibleValor(casilla[i][j].valor, &numerosFijosPorFilas[ j ]);
             }
-
         }
     }
 
+    // Mostrar los posibles valores de cada casilla
     for(int j = 0; j <= 8; j++) {
         for(int i = 0; i <= 8; i++) {
             printf("Casilla[%d][%d]\n", i, j);
@@ -73,11 +83,64 @@ int main() {
         }
     }
 
+    /*
+     * IMPRIMIR EL SUDOKU E INFORMACION DEL MISMO (casillas modificables y cuadrantes)
+     */
     printf("\n");
     imprimirSudoku(COLUMNAS, FILAS, casilla); // Imprime el sudoku por pantalla
     imprimirCasillasModificables(COLUMNAS, FILAS, casilla); // Imprime que casillas su pueden modificar y cuales no
     imprimirCuadrantes(COLUMNAS, FILAS, casilla); // Imprime el cuadrante de cada casilla
 
+    /*
+     * IMPRIME LOS VALORES FIJOS DE CADA CUADRANTE, COLUMNA Y FILA
+     */
+    /*for(int i = 0; i <= 8; i++) {
+        printf("Valores en cuadrante %d\n", i + 1);
+        mostrarPosiblesValoresCasilla(numerosFijosPorCuadrante[i]);
+    }
+
+    for(int i = 0; i <= 8; i++) {
+        printf("Valores en columna %d\n", i + 1);
+        mostrarPosiblesValoresCasilla(numerosFijosPorColumnas[i]);
+    }
+
+    for(int i = 0; i <= 8; i++) {
+        printf("Valores en fila %d\n", i + 1);
+        mostrarPosiblesValoresCasilla(numerosFijosPorFilas[i]);
+    }*/
+
+
+   for(int j = 0; j <= 8; j++) {
+        for(int i = 0; i <= 8; i++) {
+            if(casilla[i][j].esModificable) {
+                borrarComunes(&casilla[i][j].posiblesValores, numerosFijosPorCuadrante[casilla[i][j].cuadrante - 1]);
+                borrarComunes(&casilla[i][j].posiblesValores, numerosFijosPorColumnas[i]);
+                borrarComunes(&casilla[i][j].posiblesValores, numerosFijosPorFilas[j]);
+            }
+        }
+    }
+
+    deleteAtPosition(3, &casilla[0][0].posiblesValores);
+    deleteAtPosition(3, &casilla[0][0].posiblesValores);
+    deleteAtPosition(10, &casilla[0][0].posiblesValores);
+    deleteAtPosition(0, &casilla[0][0].posiblesValores);
+    deleteAtPosition(5, &casilla[2][0].posiblesValores);
+    deleteAtPosition(-1, &casilla[3][0].posiblesValores);
+
+    printf("++++++++++++++++++++++++++++++\n");
+    /*printf("Elementos en cuadrante 1 , %d\n", elementosEnLista(numerosFijosPorCuadrante[0]));
+    printf("Elementos en cuadrante 2 , %d\n", elementosEnLista(numerosFijosPorCuadrante[1]));
+    printf("Elementos en cuadrante 3 , %d\n", elementosEnLista(numerosFijosPorCuadrante[2]));
+    printf("Elementos en filas 1 , %d\n", elementosEnLista(numerosFijosPorFilas[0]));
+    printf("Elementos en filas 2 , %d\n", elementosEnLista(numerosFijosPorFilas[1]));
+    printf("Elementos en filas 3 , %d\n", elementosEnLista(numerosFijosPorFilas[2]));
+    printf("Elementos en columnas 1 , %d\n", elementosEnLista(numerosFijosPorColumnas[0]));
+    printf("Elementos en columnas 2 , %d\n", elementosEnLista(numerosFijosPorColumnas[1]));
+    printf("Elementos en columnas 3 , %d\n", elementosEnLista(numerosFijosPorColumnas[2]));*/
+
+    mostrarPosiblesValoresCasilla(casilla[0][0].posiblesValores);
+    mostrarPosiblesValoresCasilla(casilla[2][0].posiblesValores);
+    mostrarPosiblesValoresCasilla(casilla[3][0].posiblesValores);
 
     return 0;
 }
