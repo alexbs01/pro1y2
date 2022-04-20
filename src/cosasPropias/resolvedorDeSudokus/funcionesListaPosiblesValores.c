@@ -52,7 +52,6 @@ int getNumber(tPosicionLista posicion, tLista lista) {
 }
 
 void mostrarPosiblesValoresCasilla(tLista lista) {
-
     if(isEmptyList(lista)) {
         printf("Esta casilla no es modificable\n");
     } else {

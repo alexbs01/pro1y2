@@ -76,41 +76,16 @@ int main() {
         }
     }
 
-    // Mostrar los posibles valores de cada casilla
-   /* for(int j = 0; j <= 8; j++) {
-        for(int i = 0; i <= 8; i++) {
-            printf("Casilla[%d][%d]\n", i, j);
-            mostrarPosiblesValoresCasilla(casilla[i][j].posiblesValores);
-        }
-    }*/
-
     /*
      * IMPRIMIR EL SUDOKU E INFORMACION DEL MISMO (casillas modificables y cuadrantes)
      */
     printf("\n");
     imprimirSudoku(COLUMNAS, FILAS, casilla); // Imprime el sudoku por pantalla
-    //imprimirCasillasModificables(COLUMNAS, FILAS, casilla); // Imprime que casillas su pueden modificar y cuales no
-    //imprimirCuadrantes(COLUMNAS, FILAS, casilla); // Imprime el cuadrante de cada casilla
 
     /*
-     * IMPRIME LOS VALORES FIJOS DE CADA CUADRANTE, COLUMNA Y FILA
+     * SE RESUELVE EL SUDOKU
      */
-    /*for(int i = 0; i <= 8; i++) {
-        printf("Valores en cuadrante %d\n", i);
-        mostrarPosiblesValoresCasilla(numerosFijosPorCuadrante[i]);
-    }*/
-
-    /*for(int i = 0; i <= 8; i++) {
-        printf("Valores en columna %d\n", i);
-        mostrarPosiblesValoresCasilla(numerosFijosPorColumnas[i]);
-    }*/
-
-    /*for(int i = 0; i <= 8; i++) {
-        printf("Valores en fila %d\n", i);
-        mostrarPosiblesValoresCasilla(numerosFijosPorFilas[i]);
-    }*/
-
-    for(int numeroMaximoVueltas = 0; numeroMaximoVueltas <= 5; numeroMaximoVueltas++) {
+    for(int numeroMaximoVueltas = 0; numeroMaximoVueltas <= 10; numeroMaximoVueltas++) {
         for(int j = 0; j <= 8; j++) {
             for(int i = 0; i <= 8; i++) {
                 if(casilla[i][j].esModificable) {
@@ -132,30 +107,13 @@ int main() {
         if(continuarDandoVueltas) {
             continuarDandoVueltas = false;
         } else {
+            printf("+++++++++++++++++++++++++++++++ En %d vueltas\n\n", numeroMaximoVueltas);
             break;
         }
     }
 
-    printf("+++++++++++++++++++++++++++++++\n\n");
-   /* for(int j = 0; j <= 8; j++) {
-       for(int i = 0; i <= 8; i++) {
-           if(casilla[i][j].esModificable) {
-               printf("\nCasilla %d %d\n", i, j);
-               mostrarPosiblesValoresCasilla(casilla[i][j].posiblesValores);
-            }
-        }
-    }*/
-
-
-    /*for(int j = 0; j <= 8; j++) {
-        for (int i = 0; i <= 8; i++) {
-            if (casilla[i][j].esModificable && casilla[i][j].posiblesValores->next == LNULL) {
-                casilla[i][j].valor = firstNumber(casilla[i][j].posiblesValores);
-                casilla[i][j].esModificable = false;
-            }
-        }
-    }*/
-
+    // Se imprime la solución del sudoku a la que se llego, si no se puedo resolver, mostrara
+    // todo lo que pudo resolver
     imprimirSudoku(COLUMNAS, FILAS, casilla); // Imprime el sudoku por pantalla
 
     return 0;
