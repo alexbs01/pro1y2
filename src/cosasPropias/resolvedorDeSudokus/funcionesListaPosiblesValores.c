@@ -121,12 +121,12 @@ int elementosEnLista(tLista lista) { // Cantidad de elementos en la lista
 }
 
 void borrarComunes(tLista *lista, tLista listaConComunes) {
-    tPosicionLista posicion, posicionABorrar;
+    tPosicionLista posicionABorrar, posicion;
 
-    for(posicionABorrar = *lista; posicionABorrar != LNULL; posicionABorrar = posicionABorrar->next) {
-        for(posicion = listaConComunes; posicion != LNULL; posicion = posicion->next) {
+    for(posicion = listaConComunes; posicion != LNULL; posicion = posicion->next) {
+        for(posicionABorrar = *lista; posicionABorrar != LNULL; posicionABorrar = posicionABorrar->next) {
             if(posicion->data == posicionABorrar->data) {
-                deleteAtPosition(posicionABorrar->data, lista);
+                deleteAtPosition(posicion->data, lista);
                 break;
             }
         }
