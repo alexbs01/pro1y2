@@ -21,11 +21,9 @@ struct tNode {
 
 typedef tPosL tList;
 
-/* Cabeceras */
-
-/*
+/* Cabeceras
  * L -> Lista
- * p -> posicion o nodo de la Lista
+ * p -> posición o nodo de la Lista
  */
 void createEmptyList(tList *L);                // Crea una lista vacía, esta función es muy importante
 bool isEmptyList(tList L);                     // Comprueba si una lista está vacía
