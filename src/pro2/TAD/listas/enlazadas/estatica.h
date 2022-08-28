@@ -7,7 +7,7 @@
 
 #include <stdbool.h>
 
-/* Definicion de tipos de datos */
+/* Definición de tipos de datos */
 #define LNULL -1
 #define MAX 1000
 
@@ -20,11 +20,9 @@ typedef struct {
     tPosL lastPos;
 } tList;
 
-/* Cabeceras */
-
-/*
+/* Cabeceras
  * L -> Lista
- * p -> posicion o nodo de la Lista
+ * p -> posición o nodo de la Lista
  */
 bool isEmptyList(tList L);                      // Comprueba si la lista está vacía
 void createEmptyList(tList *L);                 // Crea una lista vacía

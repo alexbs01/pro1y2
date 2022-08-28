@@ -7,7 +7,7 @@
 
 #include <stdbool.h>
 
-/* Definicion de tipos de datos */
+/* Definición de tipos de datos */
 #define LNULL -1
 #define MAX 1000
 

@@ -8,6 +8,7 @@
 #include "listaOrdenadaParaPrioridades.h"
 #include <stdio.h>
 
+/* Definición de tipos de datos */
 #define LNULL NULL
 
 typedef tOrderedList tQueueP;
