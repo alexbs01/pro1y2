@@ -2,7 +2,7 @@
 // Created by alexb on 23/08/2022.
 //
 
-#include "estatica.h"
+#include "estaticaListaOrdenada.h"
 
 bool isEmptyList(tList L) {
     return L.lastPos == LNULL;

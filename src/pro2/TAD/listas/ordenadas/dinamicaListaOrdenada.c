@@ -2,7 +2,7 @@
 // Created by alexb on 23/08/2022.
 //
 
-#include "dinamica.h"
+#include "dinamicaListaOrdenada.h"
 #include <stdbool.h>
 #include <stdlib.h>
 

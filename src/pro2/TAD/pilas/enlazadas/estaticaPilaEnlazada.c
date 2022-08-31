@@ -2,7 +2,7 @@
 // Created by alexb on 28/08/2022.
 //
 
-#include "estatica.h"
+#include "estaticaPilaEnlazada.h"
 
 #include "static_stack.h"
 

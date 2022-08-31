@@ -26,7 +26,7 @@ typedef tBSTPos tBST;
 bool isEmptyTree(tBST tree);
 void createEmptyTree(tBST *tree);
 bool insertKey(tBST *tree, tKey key);
-tBST findKey(tBST tree, tKey key);          // Busca la clave en el árbol de búsqueda
+tBST findKey(tBST tree, tKey key);          // Retorna el árbol que tenga como raíz la clave que se busca
 void replace(tBST *subTree,tBST *auxTree);  // Reemplaza el contenido de un nodo por el de sus predecesores
 void removeKey(tBST *tree, tKey key);       // Elimina una clave del árbol
 tBST leftChild(tBST tree);

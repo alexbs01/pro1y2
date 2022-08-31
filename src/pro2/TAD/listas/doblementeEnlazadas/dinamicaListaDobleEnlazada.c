@@ -2,7 +2,7 @@
 // Created by alexb on 27/08/2022.
 //
 
-#include "dinamica.h"
+#include "dinamicaListaDobleEnlazada.h"
 #include <stdlib.h>
 
 bool isEmptyList(tList L) {

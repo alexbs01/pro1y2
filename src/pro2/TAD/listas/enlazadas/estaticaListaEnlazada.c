@@ -2,7 +2,7 @@
 // Created by alexb on 20/08/2022.
 //
 
-#include "estatica.h"
+#include "estaticaListaEnlazada.h"
 
 bool isEmptyList(tList L) {
     // Si una lista estática está vacía, el puntero que apunta a la última posición debe ser LNULL

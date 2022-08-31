@@ -2,7 +2,7 @@
 // Created by alexb on 31/08/2022.
 //
 
-#include "dinamicos.h"
+#include "dinamicosBinBusqueda.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -66,7 +66,7 @@ bool insertKey(tBST* tree, tKey key) {
 
 void replace (tBST* subTree,tBST* auxTree) {
     if(!isEmptyTree((*subTree)->right)) { // Si el subárbol derecho no está vacío, reemplaza al nodo padre
-        replace(&(*subTree)->right,auxTree); // Baja por la rama derecha
+        replace(&(*subTree)->right, auxTree); // Baja por la rama derecha
     } else {
         (*auxTree)->key = (*subTree)->key; // Se reemplaza el campo data del nodo
         *auxTree = *subTree;               // auxTree será el nodo a liberar

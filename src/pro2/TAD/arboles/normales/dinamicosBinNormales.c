@@ -2,7 +2,7 @@
 // Created by alexb on 30/08/2022.
 //
 
-#include "dinamicos.h"
+#include "dinamicosBinNormales.h"
 #include <stdlib.h>
 
 bool isEmptyTree(tBinTree T) {

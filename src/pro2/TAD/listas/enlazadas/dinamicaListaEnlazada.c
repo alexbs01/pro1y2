@@ -2,7 +2,7 @@
 // Created by alexb on 20/08/2022.
 //
 
-#include "dinamica.h"
+#include "dinamicaListaEnlazada.h"
 
 #include <stdlib.h>
 
