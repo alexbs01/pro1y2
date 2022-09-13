@@ -13,6 +13,6 @@
 #include "lista.h"
 
 int splitString(char *cadena, char *trozos[]);
-int processInput(char *tokens[], list *historial);
+int processInput(char *tokens[], list *historial, int ntokens);
 
 #endif //SHELL_C_FUNCIONESAUXILIARES_H

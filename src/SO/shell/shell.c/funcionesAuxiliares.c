@@ -19,7 +19,7 @@ int splitString(char *cadena, char *trozos[]) {
 
 struct cmd {
     char *cmdName;
-    int (*cmdFunction)(char *tokens[]);
+    int (*cmdFunction)(char *tokens[], int ntokens);
 } cmds[] = {
         {"autores", autores},
         {"pid", pid},
@@ -35,11 +35,10 @@ struct cmd {
         {NULL, NULL}
 };
 
-int processInput(char *tokens[], list *historial) {
-    int i;
-    for(i = 0; cmds[i].cmdName != NULL; i++) {
+int processInput(char *tokens[], list *historial, int ntokens) {
+    for(int i = 0; cmds[i].cmdName != NULL; i++) {
         if(strcmp(tokens[0], cmds[i].cmdName) == 0) {
-            cmds[i].cmdFunction(tokens + 1);
+            cmds[i].cmdFunction(tokens + 1, ntokens - 1);
             return 0;
         }
     }

@@ -8,6 +8,7 @@
 int main() {
     char input[MAX_INPUT_SIZE];
     char *tokens[MAX_TOKENS];
+    int ntokens;
 
     list historial;
     createEmptyList(&historial);
@@ -15,8 +16,8 @@ int main() {
     while(1) {
         printf("\n> ");
         fgets(input, MAX_INPUT_SIZE, stdin); // stdin es para que lea del teclado, pero fgets tambien vale para ficheros
-        splitString(input, tokens);
-        processInput(tokens, &historial);
+        ntokens = splitString(input, tokens);
+        processInput(tokens, &historial, ntokens);
         //printf("\n%s ", input);
 
         }

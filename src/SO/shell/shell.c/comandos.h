@@ -9,17 +9,17 @@
 #include <stdlib.h>
 #include "funcionesAuxiliares.h"
 
-int autores(char *tokens[]);
-int pid(char *tokens[]);
-int carpeta(char *tokens[]);
-int fecha(char *tokens[]);
-int hist(char *tokens[]);
-int comando(char *tokens[]);
-int infosis(char *tokens[]);
-int ayuda(char *tokens[]);
-int fin(char *tokens[]);
-int salir(char *tokens[]);
-int bye(char *tokens[]);
+int autores(char *tokens[], int ntokens);
+int pid(char *tokens[], int ntokens);
+int carpeta(char *tokens[], int ntokens);
+int fecha(char *tokens[], int ntokens);
+int hist(char *tokens[], int ntokens);
+int comando(char *tokens[], int ntokens);
+int infosis(char *tokens[], int ntokens);
+int ayuda(char *tokens[], int ntokens);
+int fin(char *tokens[], int ntokens);
+int salir(char *tokens[], int ntokens);
+int bye(char *tokens[], int ntokens);
 
 
 #endif //SHELL_C_COMANDOS_H
