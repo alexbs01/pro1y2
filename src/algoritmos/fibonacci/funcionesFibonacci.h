@@ -11,6 +11,6 @@
 int fib1(int n);
 int fib2(int n);
 int fib3(int n);
-int test(int n);
+void test(int n);
 
 #endif //FIBONACCI_FUNCIONESFIBONACCI_H

@@ -73,7 +73,7 @@ int fib3(int n) {
     return j;
 }
 
-int test(int n) {
+void test(int n) {
     printf("       n\t|\tfb1(n)\t\tfb2(n)\t\tfb3(n)\n");
     printf("----------------|------------------------------------------------\n");
     for(int i = 0; i <= n; i++) {
